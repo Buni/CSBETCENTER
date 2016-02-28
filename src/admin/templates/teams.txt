@@ -1,0 +1,18 @@
+astralis - Astralis
+c9 - Cloud9
+clg - CLG
+dignitas - Dignitas
+efrag - E-Frag
+envy - EnVyUs
+flipsid3 - FlipSid3
+fnatic - Fnatic
+hellraisers - HellRaisers
+luminosity - Luminosity
+mouz - mouzesports
+navi - NaVi
+nip - NIP
+property - Property
+sk - SK Gaming
+tsm - TSM
+vexed - Vexed
+vp - Virtus.Pro
