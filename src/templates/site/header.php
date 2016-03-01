@@ -237,13 +237,6 @@
 					</a>
 				</li>
 
-				<li>
-					<a href="gifts.php">
-						<i class="fa fa-gift menu-icon" style="color:#E69B23;font-size:18px;"></i> Gifts
-						<span class="badge" style="float:right">0</span>
-					</a>
-				</li>	
-
 				<li class="line"></li>
 
 				<li>
@@ -291,7 +284,7 @@
 
 				<!-- SOCIALS -->
 				<div class="socials">
-					<a href="http://steamcommunity.com/groups/csbetcenter" class="social-icon" target="_blank"><i class="fa fa-steam-square"></i></a>
+					<a href="http://steamcommunity.com/#" class="social-icon" target="_blank"><i class="fa fa-steam-square"></i></a>
 
 					<a href="http://facebook.com/#" class="social-icon" target="_blank"><i class="fa fa-facebook-square"></i></a>
 				</div>
