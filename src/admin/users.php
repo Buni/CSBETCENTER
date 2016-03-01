@@ -56,6 +56,8 @@
 				$steamInfo = file_get_contents('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=2A19C2EA73F803C304ED6DEE6DEA4408&steamids='.$row['steam64id']);
 				$steamInfoDecoded = json_decode($steamInfo, true);
 
+				$referredById = '';
+				$referredByName = '';
 				$sql4 = "SELECT id, steam64id FROM users WHERE steam64id='".$row['referredBy']."'";
 				$result4 = $conn->query($sql4);
 				if ($result4->num_rows > 0) 
@@ -91,7 +93,6 @@
 						<h4><strong>Total bet: </strong>'.$row['totalBet'].' coins</h4>
 					</div>
 				';
-				$referredByName = '';
 			}
 			echo '</div>';
 		}
