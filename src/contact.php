@@ -1,4 +1,4 @@
-<?php require_once 'templates/site/header.php'; ?>
+<?php require_once 'templates/site/headerbanned.php'; ?>
 
 <div class="row" style="padding:15px">
 
