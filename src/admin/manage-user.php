@@ -15,9 +15,10 @@
 			while($row = $result->fetch_assoc()) 
 			{
 				$info = $row;
-				$steamInfo = file_get_contents('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=2A19C2EA73F803C304ED6DEE6DEA4408&steamids='.$info['steam64id']);
+				$steamInfo = file_get_contents('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=(PUT STEAM API KEY HERE)&steamids='.$info['steam64id']);
 				$steamInfoDecoded = json_decode($steamInfo, true);
 
+				$referredById = '';
 				$sql2 = "SELECT id FROM users WHERE steam64id='".$info['referredBy']."'";
 				$result2 = $conn->query($sql2);
 				if ($result2->num_rows > 0) 
@@ -27,7 +28,8 @@
 						$referredById = $row2['id'];
 					}
 				}
-
+				
+				$totalReferredUsers = '0';
 				$sql3 = "SELECT id FROM users WHERE referredBy='".$info['steam64id']."'";
 				$result3 = $conn->query($sql3);
 				if ($result3->num_rows > 0) 
@@ -38,7 +40,7 @@
 					}
 				}
 
-				$steamInfoReferred = file_get_contents('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=2A19C2EA73F803C304ED6DEE6DEA4408&steamids='.$info['referredBy']);
+				$steamInfoReferred = file_get_contents('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=(PUT STEAM API KEY HERE)&steamids='.$info['referredBy']);
 				$steamInfoDecodedReferred = json_decode($steamInfoReferred, true);
 
 				if($info['admin']!=='1')
@@ -75,7 +77,14 @@
 		<h4><strong>Steam ID: </strong><?php echo $info['steam64id']; ?></h4>
 		<h4><strong>Registration date: </strong><?php echo $info['date']; ?></h4>
 		<h4><strong>Rank: </strong><?php echo $rank; ?></h4>
-		<h4><strong>Referred by: </strong><a href="manage-user.php?id=<?php echo $referredById; ?>"><?php echo $steamInfoDecodedReferred['response']['players'][0]['personaname']; ?></a></h4>
+		<h4><strong>Referred by: </strong>
+		<a href="manage-user.php?id=<?php echo $referredById; ?>">
+		<?php	
+		if ($referredById != 0) {
+			echo $steamInfoDecodedReferred['response']['players'][0]['personaname']; 
+		}
+		?>
+		</a></h4>
 		<h4><strong>Total referred users: </strong><a href="referredBy.php?id=<?php echo $info['id']; ?>"><?php echo $totalReferredUsers; ?></a></h4>
 		<h4><strong>Total bet: </strong><?php echo $info['totalBet']; ?> coins</h4>
 
