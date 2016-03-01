@@ -300,7 +300,6 @@
 				<footer>
 					<div class="footer">
 						<p>Made with <i class="fa fa-heart" style="color:red"></i> by gamers</p>
-						<p>Copyright &copy; RaiZeN</p>
 						<p>Powered by Steam</p>
 					</div>
 				</footer>
